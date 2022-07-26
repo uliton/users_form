@@ -1,0 +1,22 @@
+.button {
+  width: 120px;
+  height: 34px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+  background: #F4E041;
+  border: none;
+  border-radius: 80px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #FFE302;
+}
+
+.button:disabled {
+  color: rgba(255, 255, 255, 0.87);
+  background: #B4B4B4;
+}

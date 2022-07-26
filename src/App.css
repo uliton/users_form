@@ -1,0 +1,38 @@
+html {
+  font-family: 'Nunito', sans-serif;
+}
+
+body, p {
+  margin: 0;
+}
+
+.main {
+  background-color: #F8F8F8;
+}
+
+.container {
+  width: 328px;
+  padding: 0 16px 100px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 704px;
+    padding: 0 32px 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 904px;
+    padding: 0 60px 100px;
+  }
+}
+
+@media (min-width: 1170px) {
+  .container {
+    width: auto;
+    max-width: 1170px;
+  }
+}
