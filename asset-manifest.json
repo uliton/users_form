@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.460dbcc5.css",
-    "main.js": "/static/js/main.2027d3d5.js",
-    "static/media/headerImage.jpeg": "/static/media/headerImage.be7665f876bbd9138501.jpeg",
-    "static/media/Снимок.png": "/static/media/Снимок.eaf295d6d701273e418f.png",
-    "static/media/Logo.svg": "/static/media/Logo.56bda82bd882001476c0cd3c0dd1e432.svg",
-    "static/media/photo-cover.svg": "/static/media/photo-cover.fb98cf13a87225efe558669bdc541ac7.svg",
-    "index.html": "/index.html",
-    "main.460dbcc5.css.map": "/static/css/main.460dbcc5.css.map",
-    "main.2027d3d5.js.map": "/static/js/main.2027d3d5.js.map"
+    "main.css": "/abz_test_task/static/css/main.593bb863.css",
+    "main.js": "/abz_test_task/static/js/main.d0cbe669.js",
+    "static/media/headerImage.jpeg": "/abz_test_task/static/media/headerImage.be7665f876bbd9138501.jpeg",
+    "static/media/Снимок.png": "/abz_test_task/static/media/Снимок.eaf295d6d701273e418f.png",
+    "static/media/Logo.svg": "/abz_test_task/static/media/Logo.56bda82bd882001476c0cd3c0dd1e432.svg",
+    "static/media/photo-cover.svg": "/abz_test_task/static/media/photo-cover.fb98cf13a87225efe558669bdc541ac7.svg",
+    "index.html": "/abz_test_task/index.html",
+    "main.593bb863.css.map": "/abz_test_task/static/css/main.593bb863.css.map",
+    "main.d0cbe669.js.map": "/abz_test_task/static/js/main.d0cbe669.js.map"
   },
   "entrypoints": [
-    "static/css/main.460dbcc5.css",
-    "static/js/main.2027d3d5.js"
+    "static/css/main.593bb863.css",
+    "static/js/main.d0cbe669.js"
   ]
 }
