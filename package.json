@@ -1,6 +1,7 @@
 {
   "name": "abz_test_task",
   "version": "0.1.0",
+  "homepage": "https://uliton.github.io/abz_test_task",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -22,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
