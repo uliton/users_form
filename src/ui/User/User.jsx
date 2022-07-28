@@ -1,6 +1,6 @@
 import React from 'react';
 import emptyImg from '../../images/photo-cover.svg';
-import { Box, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 
 import styles from './User.module.css';
 

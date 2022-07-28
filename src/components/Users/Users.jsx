@@ -28,7 +28,7 @@ export const Users = () => {
   console.log(users);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="users">
       <span className={styles.title}>
         Working with POST request
       </span>

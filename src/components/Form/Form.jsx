@@ -5,7 +5,7 @@ import { ButtonSignUp } from '../../ui/ButtonSignUp';
 import styles from './Form.module.css';
 
 export const Form = () => (
-  <div className={styles.container}>
+  <div className={styles.container} id="form">
     <span className={styles.title}>
       Working with GET request
     </span>

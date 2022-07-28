@@ -9,8 +9,12 @@ export const Navigation = () => (
   <div className={styles.header}>
     <Logo />
     <div className={styles.buttonContainer}>
-      <ButtonUsers />
-      <ButtonSignUp />
+      <a href="#users">
+        <ButtonUsers />
+      </a>
+      <a href="#form">
+        <ButtonSignUp />
+      </a>
     </div>
   </div>
 );
