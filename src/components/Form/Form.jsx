@@ -4,12 +4,24 @@ import { TextField, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import { ButtonSignUp } from '../../ui/ButtonSignUp';
 
 import styles from './Form.module.css';
+import { getPositions } from '../../api/users';
+import { useEffect } from 'react';
 
 export const Form = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [positions, setPositions] = useState([]);
 
+  useEffect(() => {
+    getPositions().then(result => {
+      setPositions([...result.positions])
+    })
+  }, [])
+  
+  console.log(positions);
+
+  
   const onFocus = (event) => {
     if (!event) {
       setPhone('+380');
@@ -67,51 +79,20 @@ export const Form = () => {
           Select your position
           </p>
   
-          <RadioGroup
-              // defaultValue={1}
-              // aria-labelledby="position-group"
-              className={styles.radio_buttons}
-          >
-            <FormControlLabel
-              value="Frontend developer"
-              label="Frontend developer"
-              control={<Radio sx={{
-                '&.Mui-checked': {
-                  color: '#00BDD3',
-                },
-              }}/>}
-              className={styles.radio_button}
+          <RadioGroup className={styles.radio_buttons}>
+            {positions.map(position => (
+              <FormControlLabel
+                key={position.id}
+                value={position.name}
+                label={position.name}
+                control={<Radio sx={{
+                  '&.Mui-checked': {
+                    color: '#00BDD3',
+                  },
+                }}/>}
+                className={styles.radio_button}
             />
-            <FormControlLabel
-              value="Backend developer"
-              label="Backend developer"
-              control={<Radio sx={{
-                '&.Mui-checked': {
-                  color: '#00BDD3',
-                },
-              }}/>}
-              className={styles.radio_button}
-            />
-            <FormControlLabel
-              value="Designer"
-              label="Designer"
-              control={<Radio sx={{
-                '&.Mui-checked': {
-                  color: '#00BDD3',
-                },
-              }}/>}
-              className={styles.radio_button}
-            />
-            <FormControlLabel
-              value="QA"
-              label="QA"
-              control={<Radio sx={{
-                '&.Mui-checked': {
-                  color: '#00BDD3',
-                },
-              }}/>}
-              className={styles.radio_button}
-            />
+            ))}
           </RadioGroup>
         </div>
   
