@@ -2,12 +2,13 @@ import React from 'react';
 
 import styles from './ButtonSignUp.module.css';
 
-export const ButtonSignUp = ({ status }) => (
+export const ButtonSignUp = ({ status, onSubmit }) => (
   <>
     {status ? (
       <button
-        type="submit"
+        type="button"
         className={styles.button}
+        onClick={onSubmit}
       >
         Sign up
       </button>

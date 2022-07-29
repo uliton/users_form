@@ -1,5 +1,5 @@
 .container {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -44,14 +44,15 @@
   height: 26px;
 }
 
+.upload {
+  margin-bottom: 50px;
+}
+
 .uploader {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   width: 328px;
   height: 54px;
   margin: auto;
-  margin-bottom: 50px;
 }
 
 .uploader_button {
@@ -89,9 +90,24 @@
   cursor: pointer;
 }
 
+.upload_error {
+  display: block;
+  text-align: center;
+  margin: 8px;
+  font-size: 16px;
+  line-height: 26px;
+  color: red;
+  font-weight: bold;
+}
+
 .button{
   display: flex;
   justify-content: center;
+}
+
+.success_image {
+  display: block;
+  margin: auto;
 }
 
 @media (min-width: 768px) {
@@ -101,5 +117,9 @@
 
   .uploader {
     width: 380px;
+  }
+
+  .upload_error {
+    margin: 16px;
   }
 }

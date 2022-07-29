@@ -11,3 +11,7 @@ export const getPositions = async () => {
 
   return response.json();
 }
+
+// export setUser = async ({}) => {
+  
+// }
