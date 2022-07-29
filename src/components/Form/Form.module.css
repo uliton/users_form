@@ -46,7 +46,8 @@
 
 .uploader {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   width: 328px;
   height: 54px;
   margin: auto;
@@ -54,7 +55,9 @@
 }
 
 .uploader_button {
-  font-family: 'Nunito', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   line-height: 26px;
   color: rgba(0, 0, 0, 0.87);

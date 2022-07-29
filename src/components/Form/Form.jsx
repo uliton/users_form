@@ -28,13 +28,20 @@ export const Form = () => {
     }
   }
 
+  const onSubmit = () => {
+    setUserName('');
+    setEmail('');
+    setPhone('');
+    console.log('Submit');
+  }
+
   return (
     <div className={styles.container} id="form">
       <span className={styles.title}>
         Working with GET request
       </span>
   
-      <form action="">
+      <form action="" onSubmit={onSubmit}>
         <div className={styles.form}>
           <div className={styles.inputs}>
             <TextField
@@ -95,14 +102,17 @@ export const Form = () => {
             ))}
           </RadioGroup>
         </div>
-  
-        <div className={styles.uploader}>
-          <button id="uploader" className={styles.uploader_button}>Upload</button>
-          <label htmlFor="uploader" className={styles.uploader_label}>Upload your photo</label>
-        </div>
-  
+
+        <input type="file" id="file" className={styles.fileInput} style={{ display: 'none' }} />
+        <label htmlFor="file" className={styles.uploader}>
+          <span className={styles.uploader_button}>Upload</span>
+          <span className={styles.uploader_label}>Upload your photo</span>
+        </label>
+ 
         <div className={styles.button}>
-          <ButtonSignUp />
+          <ButtonSignUp 
+            status={userName && email && phone}
+          />
         </div>
       </form>
   

@@ -9,11 +9,11 @@ export const Navigation = () => (
   <div className={styles.header}>
     <Logo />
     <div className={styles.buttonContainer}>
-      <a href="#users">
+      <a href="#users" style={{ "textDecoration": 'none' }}>
         <ButtonUsers />
       </a>
-      <a href="#form">
-        <ButtonSignUp />
+      <a href="#form" style={{ "textDecoration": 'none' }}>
+        <ButtonSignUp status={true} />
       </a>
     </div>
   </div>
