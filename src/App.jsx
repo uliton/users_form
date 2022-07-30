@@ -1,7 +1,8 @@
+import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import { Navigation } from './components/Navigation';
-// import { Header } from './components/Header';
+import { Header } from './components/Header';
 import { Users } from './components/Users';
 import { Form } from './components/Form';
 
@@ -12,7 +13,7 @@ export const App = () => {
     <div className="App">
       <Navigation />
       <div className="main">
-        {/* <Header /> */}
+        <Header />
         <div className="container">
           <Users success={success} />
           <Form success={success} setSuccess={setSuccess} />

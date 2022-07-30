@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getUsers } from '../../api/api';
 import { User } from '../../ui/User';
 import { ButtonShowMore } from '../../ui/ButtonShowMore'
-
-import { getUsers } from '../../api/api';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { Loader } from '../../ui/Loader';
 
 import styles from './Users.module.css';
 
@@ -13,6 +11,16 @@ export const Users = ({ success }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [noMoreUsers, setNoMoreUsers] = useState('');
+  
+  useEffect(() => {
+    getUsers(page).then(result => {
+      if (result.success) {
+        setUsers([
+          ...result.users,
+        ]);
+      };
+    });
+  }, [success]);
 
   useEffect(() => {
     getUsers(page).then(result => {
@@ -27,15 +35,24 @@ export const Users = ({ success }) => {
     });
   },[page]);
 
-  useEffect(() => {
-    getUsers(page).then(result => {
-      if (result.success) {
-        setUsers([
-          ...result.users,
-        ]);
-      };
-    });
-  }, [success]);
+  if (users.length === 0) {
+    return (
+      <div className={styles.container} id="users">
+      <span className={styles.title}>
+        Working with POST request
+      </span>
+
+      <Loader />
+
+      <div className={styles.button}>
+        <ButtonShowMore
+          page={page}
+          setPage={setPage}
+        />
+      </div>
+    </div>
+    )
+  }
 
   return (
     <div className={styles.container} id="users">

@@ -1,10 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState } from 'react';
 import { regExp } from '../../rules/rules';
-import { getPositions, setUser } from '../../api/api';
+import { setUser } from '../../api/api';
 import { ButtonSignUp } from '../../ui/ButtonSignUp';
-import { TextField, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { RadioButtons } from '../../ui/RadioButtons/RadioButtons';
+import { TextField } from '@mui/material';
 import successImage from '../../images/success-image.svg';
 
 import styles from './Form.module.css';
@@ -19,7 +18,6 @@ export const Form = ({ success, setSuccess }) => {
   const [phone, setPhone] = useState('');
   const [phoneHelperText, setPhoneHelperText] = useState('+38 (XXX) XXX - XX - XX');
 
-  const [positions, setPositions] = useState([]);
   const [positionId, setPositionId] = useState('');
 
   const [fileName, setFileName] = useState('');
@@ -27,12 +25,6 @@ export const Form = ({ success, setSuccess }) => {
   const [fileErrorText, setFileErrorText] = useState('');
 
   const [successErrorText, setSuccessErrorText] = useState('');
-
-  useEffect(() => {
-    getPositions().then(result => {
-      setPositions([...result.positions])
-    })
-  },[])
 
   const onFocus = (event) => {
     if (!event) {
@@ -116,7 +108,7 @@ export const Form = ({ success, setSuccess }) => {
         if (result.success) {
           setSuccess(true);
         } else {
-          setSuccessErrorText(result.message);
+          setSuccessErrorText('Please, be correct on your inputs!');
         }
       })
     }
@@ -231,24 +223,8 @@ export const Form = ({ success, setSuccess }) => {
             Select your position
             </p>
 
-            <RadioGroup className={styles.radio_buttons}>
-              {positions.map(position => (
-                <FormControlLabel
-                  key={position.id}
-                  value={position.id}
-                  label={position.name}
-                  control={<Radio sx={{
-                    '&.Mui-checked': {
-                      color: '#00BDD3',
-                    },
-                  }}/>}
-                  className={styles.radio_button}
-                  onChange={event => {
-                    setPositionId(event.target.value);
-                  }}
-              />
-              ))}
-            </RadioGroup>
+            <RadioButtons setPositionId={setPositionId} />
+
           </div>
 
           <div className={styles.upload}>

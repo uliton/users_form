@@ -1,0 +1,14 @@
+.loader {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border-radius: 50%;
+  animation: preloader 1s linear infinite;
+  margin-bottom: 50px;
+}
+
+@keyframes preloader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
