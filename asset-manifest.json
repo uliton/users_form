@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/abz_test_task/static/css/main.4a7d7089.css",
-    "main.js": "/abz_test_task/static/js/main.665c478a.js",
+    "main.js": "/abz_test_task/static/js/main.3cb1bab1.js",
     "static/media/headerImage.jpeg": "/abz_test_task/static/media/headerImage.be7665f876bbd9138501.jpeg",
     "static/media/success-image.svg": "/abz_test_task/static/media/success-image.0d3202ba11b04fa7364b0f83ce42aea5.svg",
     "static/media/Logo.svg": "/abz_test_task/static/media/Logo.56bda82bd882001476c0cd3c0dd1e432.svg",
@@ -9,10 +9,10 @@
     "static/media/Preloader.svg": "/abz_test_task/static/media/Preloader.0aaf07f39acaa32ce036564ce35dba88.svg",
     "index.html": "/abz_test_task/index.html",
     "main.4a7d7089.css.map": "/abz_test_task/static/css/main.4a7d7089.css.map",
-    "main.665c478a.js.map": "/abz_test_task/static/js/main.665c478a.js.map"
+    "main.3cb1bab1.js.map": "/abz_test_task/static/js/main.3cb1bab1.js.map"
   },
   "entrypoints": [
     "static/css/main.4a7d7089.css",
-    "static/js/main.665c478a.js"
+    "static/js/main.3cb1bab1.js"
   ]
 }
