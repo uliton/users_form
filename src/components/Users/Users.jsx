@@ -10,7 +10,7 @@ import styles from './Users.module.css';
 export const Users = ({ success }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
-  const [noMoreUsers, setNoMoreUsers] = useState('');
+  const [totalPages, setTotalPages] = useState(0);
   
   useEffect(() => {
     getUsers(page).then(result => {
@@ -23,14 +23,17 @@ export const Users = ({ success }) => {
   }, [success]);
 
   useEffect(() => {
+    
     getUsers(page).then(result => {
       if (result.success) {
         setUsers([
               ...users,
               ...result.users,
         ])
-      } else {
-        setNoMoreUsers('There are no users!');
+      };
+      
+      if (totalPages === 0) {
+        setTotalPages(result.total_pages);
       };
     });
   },[page]);
@@ -73,18 +76,14 @@ export const Users = ({ success }) => {
         ))}
       </div>
 
-      {noMoreUsers && (
-        <div className={styles.no_more_users}>
-          {noMoreUsers}
+      {totalPages > page && (
+        <div className={styles.button}>
+          <ButtonShowMore
+            page={page}
+            setPage={setPage}
+          />
         </div>
       )}
-
-      <div className={styles.button}>
-        <ButtonShowMore
-          page={page}
-          setPage={setPage}
-        />
-      </div>
     </div>
   );
 };

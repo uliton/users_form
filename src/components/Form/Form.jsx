@@ -108,7 +108,7 @@ export const Form = ({ success, setSuccess }) => {
         if (result.success) {
           setSuccess(true);
         } else {
-          setSuccessErrorText('Please, be correct on your inputs!');
+          setSuccessErrorText(result.message);
         }
       })
     }
