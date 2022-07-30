@@ -2,14 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { regExp } from '../../rules/rules';
-import { getPositions } from '../../api/users';
+import { getPositions, setUser } from '../../api/api';
 import { ButtonSignUp } from '../../ui/ButtonSignUp';
 import { TextField, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import successImage from '../../images/success-image.svg';
 
 import styles from './Form.module.css';
 
-export const Form = () => {
+export const Form = ({ success, setSuccess }) => {
   const [userName, setUserName] = useState('');
   const [userNameHelperText, setUserNameHelperText] = useState('Enter your name');
 
@@ -20,13 +20,13 @@ export const Form = () => {
   const [phoneHelperText, setPhoneHelperText] = useState('+38 (XXX) XXX - XX - XX');
 
   const [positions, setPositions] = useState([]);
-  const [position, setPosition] = useState('');
+  const [positionId, setPositionId] = useState('');
 
   const [fileName, setFileName] = useState('');
   const [fileParams, setFileParams] = useState({});
   const [fileErrorText, setFileErrorText] = useState('');
 
-  const [success, setSuccess] = useState(false);
+  const [successErrorText, setSuccessErrorText] = useState('');
 
   useEffect(() => {
     getPositions().then(result => {
@@ -63,22 +63,22 @@ export const Form = () => {
   const emailErrorChecking = () => {
     if (!email.match(regExp.email)) {
       setEmailHelperText('Incorrect input');
-    }
-  }
+    };
+  };
 
   const phoneErrorChecking = () => {
     if (!phone.match(regExp.phone)) {
       setPhoneHelperText('Incorrect input');
-    }
+    };
 
     if (phone.length < 13) {
       setPhoneHelperText('Phone number is too small');
-    }
+    };
 
     if (phone.length > 13) {
       setPhoneHelperText('Phone number is too big');
-    }
-  }
+    };
+  };
 
   const fileErrorChecking = (params) => {
     let img = new Image();
@@ -92,11 +92,11 @@ export const Form = () => {
 
     if (!params.type.match(regExp.photo)) {
       setFileErrorText('Need only JPG file.');
-    }
+    };
 
     if (params.size > 5242880) {
       setFileErrorText('Photo is too big. More then 5Mb.');
-    }
+    };
   };
 
   const onSubmit = () => {
@@ -104,19 +104,22 @@ export const Form = () => {
     emailErrorChecking();
     phoneErrorChecking();
     fileErrorChecking(fileParams);
-
+    
     if (userNameHelperText === 'Enter your name'
       && emailHelperText === 'Enter your email'
       && phoneHelperText === '+38 (XXX) XXX - XX - XX'
+      && fileName !== ''
       && fileErrorText === '') {
-        
 
-        setSuccess(true);
-      }
+      setUser(userName, email, phone, positionId, fileParams).then(result => {
 
-
-
-   
+        if (result.success) {
+          setSuccess(true);
+        } else {
+          setSuccessErrorText(result.message);
+        }
+      })
+    }
   }
   
   return (
@@ -126,6 +129,12 @@ export const Form = () => {
           <span className={styles.title}>
             Working with GET request
           </span>
+
+          {successErrorText && (
+            <span className={styles.success_error}>
+              {successErrorText}
+            </span>
+          )}
       
           <div className={styles.form}>
             <div className={styles.inputs}>
@@ -226,7 +235,7 @@ export const Form = () => {
               {positions.map(position => (
                 <FormControlLabel
                   key={position.id}
-                  value={position.name}
+                  value={position.id}
                   label={position.name}
                   control={<Radio sx={{
                     '&.Mui-checked': {
@@ -235,7 +244,7 @@ export const Form = () => {
                   }}/>}
                   className={styles.radio_button}
                   onChange={event => {
-                    setPosition(event.target.value);
+                    setPositionId(event.target.value);
                   }}
               />
               ))}
@@ -268,7 +277,7 @@ export const Form = () => {
 
           <div className={styles.button}>
             <ButtonSignUp 
-              status={userName && email && phone && position}
+              status={userName && email && phone && positionId && fileName}
               onSubmit={onSubmit}
             />
           </div>

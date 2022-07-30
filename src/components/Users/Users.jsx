@@ -1,38 +1,48 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import { User } from '../../ui/User';
 import { ButtonShowMore } from '../../ui/ButtonShowMore'
 
-import { getUsers } from '../../api/users';
+import { getUsers } from '../../api/api';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 import styles from './Users.module.css';
 
-export const Users = () => {
+export const Users = ({ success }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
-  const [noMoreUsers, setNoMoreUsers] = useState(false);
+  const [noMoreUsers, setNoMoreUsers] = useState('');
 
   useEffect(() => {
     getUsers(page).then(result => {
-      setUsers([
-        ...users,
-        ...result.users,
-      ])
-    }).catch(() => {
-      setNoMoreUsers(true);
-    })
+      if (result.success) {
+        setUsers([
+              ...users,
+              ...result.users,
+        ])
+      } else {
+        setNoMoreUsers('There are no users!');
+      };
+    });
   },[page]);
 
-
-  console.log(users);
+  useEffect(() => {
+    getUsers(page).then(result => {
+      if (result.success) {
+        setUsers([
+          ...result.users,
+        ]);
+      };
+    });
+  }, [success]);
 
   return (
     <div className={styles.container} id="users">
       <span className={styles.title}>
         Working with POST request
       </span>
-  
+
       <div className={styles.grid}>
         {users.map(user => (
           <User
@@ -45,10 +55,10 @@ export const Users = () => {
           />
         ))}
       </div>
-      
+
       {noMoreUsers && (
         <div className={styles.no_more_users}>
-          There is no more users!
+          {noMoreUsers}
         </div>
       )}
 
@@ -58,7 +68,6 @@ export const Users = () => {
           setPage={setPage}
         />
       </div>
-  
     </div>
   );
 };
