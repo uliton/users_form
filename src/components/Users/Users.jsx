@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { getUsers } from '../../api/api';
-import { User } from '../../ui/User';
+import { User } from '../User';
 import { ButtonShowMore } from '../../ui/ButtonShowMore'
 import { Loader } from '../../ui/Loader';
 

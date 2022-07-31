@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPositions } from '../../api/api';
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import { Loader } from '../Loader';
+import { Loader } from '../../ui/Loader';
 
 import styles from './RadioButtons.module.css';
 
