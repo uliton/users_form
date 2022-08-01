@@ -1,6 +1,5 @@
 ### ABZ Agence Test Task
 <br>
-
 Minimalistic and very stylish SPA (single page application). Adapted for different devices. Simple and very friendly functionality.
 
 * [DEMO LINK](https://uliton.github.io/abz_test_task/)
@@ -8,7 +7,6 @@ Minimalistic and very stylish SPA (single page application). Adapted for differe
 
 ## Description
 <br>
-
 - Buttons in header section and navigation bar are smooth scrolling to section.
 - While users are loading, the preloader is displayed.
 - Users section displays by 6 users. The newest user is always at the top of the list.
@@ -22,7 +20,6 @@ Minimalistic and very stylish SPA (single page application). Adapted for differe
 
 # Dependencies
 <br>
-
 * Node v16.14.2
 
 # If you want to change some code just make installation:
@@ -34,6 +31,5 @@ Minimalistic and very stylish SPA (single page application). Adapted for differe
 
 ## Troubleshooting
 <br>
-
 I would be glad to feedback with problems or bugs.
 You can find me in [telegram](https://tlgg.ru/@a_haruca)
