@@ -20,9 +20,6 @@ Minimalistic and very stylish SPA (single page application). Adapted for differe
 - After clicking "Sign up" button, error checking is started. And if everything is ok, then a POST request is sent, the form section disappears, the "successful image" appears and rerender users section.
 
 
-## Local development
-<br>
-
 # Dependencies
 <br>
 
