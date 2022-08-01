@@ -32,4 +32,6 @@ Minimalistic and very stylish SPA (single page application). Adapted for differe
 ## Troubleshooting
 <br>
 I would be glad to feedback with problems or bugs.
-You can find me in [telegram](https://tlgg.ru/@a_haruca)
+You can find me:
+* email - al.haruca@gmail.com
+* [telegram](https://tlgg.ru/@a_haruca)
