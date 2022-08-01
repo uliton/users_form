@@ -3,13 +3,11 @@ import { regExp } from '../../rules/rules';
 import { setUser } from '../../api/api';
 import { RadioButtons } from '../RadioButtons';
 import { ButtonSignUp } from '../../ui/ButtonSignUp';
-// import { TextField } from '@mui/material';
+import { Uploader } from '../../ui/Uploader';
 import successImage from '../../images/success-image.svg';
 
-import styles from './Form.module.css';
-import { Uploader } from '../../ui/Uploader/Uploader';
-// import { Input } from '../Input/Input';
 import { TextField } from '@mui/material';
+import styles from './Form.module.css';
 
 export const Form = ({ success, setSuccess }) => {
   const [name, setName] = useState('');
