@@ -2,7 +2,7 @@
 
 Minimalistic and very stylish SPA (single page application). Adapted for different devices. Simple and very friendly functionality.
 
-* [DEMO LINK](https://uliton.github.io/abz_form)
+* [DEMO LINK](https://uliton.github.io/abz_form/)
 <br>
 
 ## Description
