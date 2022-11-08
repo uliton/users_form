@@ -1,7 +1,7 @@
 {
-  "name": "abz_test_task",
+  "name": "abz_form",
   "version": "0.1.0",
-  "homepage": "https://uliton.github.io/abz_test_task",
+  "homepage": "https://uliton.github.io/abz_form",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
