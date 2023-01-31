@@ -11,9 +11,15 @@ export const Users = ({ success }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  
+
   useEffect(() => {
-    getUsers(page).then(result => {
+    const users = async () => {
+      const responce = await getUsers(page)
+
+      return responce;
+    }
+
+    users().then(result => {
       if (result.success) {
         setUsers([
           ...result.users,
@@ -23,20 +29,19 @@ export const Users = ({ success }) => {
   }, [success]);
 
   useEffect(() => {
-    
     getUsers(page).then(result => {
       if (result.success) {
         setUsers([
-              ...users,
-              ...result.users,
+          ...users,
+          ...result.users,
         ])
       };
-      
+
       if (totalPages === 0) {
         setTotalPages(result.total_pages);
       };
     });
-  },[page]);
+  }, [page]);
 
   if (users.length === 0) {
     return (
@@ -54,8 +59,8 @@ export const Users = ({ success }) => {
         />
       </div>
     </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className={styles.container} id="users">

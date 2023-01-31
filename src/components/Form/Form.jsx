@@ -5,8 +5,8 @@ import { RadioButtons } from '../RadioButtons';
 import { ButtonSignUp } from '../../ui/ButtonSignUp';
 import { Uploader } from '../../ui/Uploader';
 import successImage from '../../images/success-image.svg';
-
 import { TextField } from '@mui/material';
+
 import styles from './Form.module.css';
 
 export const Form = ({ success, setSuccess }) => {
@@ -90,7 +90,7 @@ export const Form = ({ success, setSuccess }) => {
     emailErrorChecking();
     phoneErrorChecking();
     fileErrorChecking(photo);
-    
+
     if (nameHelperText === 'Enter your name'
       && emailHelperText === 'Enter your email'
       && phoneHelperText === '+38 (XXX) XXX - XX - XX'
@@ -109,134 +109,147 @@ export const Form = ({ success, setSuccess }) => {
 
   return (
     <>
-      {!success ? (
-        <div className={styles.container} id="form">
-          <span className={styles.title}>
-            Working with GET request
-          </span>
+      {!success
+        ? (
+          <div className={styles.container} id="form">
+            <span className={styles.title}>
+              Working with GET request
+            </span>
 
-          <span className={styles.success_error}>
-            {successErrorText}
-          </span>
-      
-          <div className={styles.form}>
-            <div className={styles.inputs}>
+            <span className={styles.success_error}>
+              {successErrorText}
+            </span>
 
-              {nameHelperText === 'Enter your name' ? (
-                <TextField
-                  id="outlined-basic"
-                  label="Your name"
-                  helperText={nameHelperText}
-                  variant="outlined"
-                  className={styles.input}
-                  value={name}
-                  onChange={event => {
-                    setName(event.target.value);
-                  }}
-                />
-              ) : (
-                <TextField
-                  error
-                  id="outlined-basic"
-                  helperText={nameHelperText}
-                  variant="outlined"
-                  className={styles.input}
-                  value={name}
-                  onChange={event => {
-                    setName(event.target.value);
-                    setNameHelperText('Enter your name');
-                  }}
-                />
-              )}
+            <div className={styles.form}>
+              <div className={styles.inputs}>
 
-              {emailHelperText === 'Enter your email' ? (
-                <TextField
-                  id="outlined-basic"
-                  label="Email"
-                  helperText={emailHelperText}
-                  variant="outlined"
-                  className={styles.input}
-                  value={email}
-                  onChange={event => {
-                    setEmail(event.target.value);
-                  }}
-                />
-              ) : (
-                <TextField
-                  error
-                  id="outlined-basic"
-                  helperText={emailHelperText}
-                  variant="outlined"
-                  className={styles.input}
-                  value={email}
-                  onChange={event => {
-                    setEmail(event.target.value);
-                    setEmailHelperText('Enter your email');
-                  }}
-                />
-              )}
+                {nameHelperText === 'Enter your name'
+                  ? (
+                    <TextField
+                      id="outlined-basic"
+                      label="Your name"
+                      helperText={nameHelperText}
+                      variant="outlined"
+                      className={styles.input}
+                      value={name}
+                      onChange={event => {
+                        setName(event.target.value);
+                      }}
+                    />
+                  )
+                  : (
+                    <TextField
+                      error
+                      id="outlined-basic"
+                      helperText={nameHelperText}
+                      variant="outlined"
+                      className={styles.input}
+                      value={name}
+                      onChange={event => {
+                        setName(event.target.value);
+                        setNameHelperText('Enter your name');
+                      }}
+                    />
+                  )
+                }
 
-              {phoneHelperText === '+38 (XXX) XXX - XX - XX' ? (
-                <TextField
-                  id="outlined-basic"
-                  label="Phone"
-                  helperText={phoneHelperText}
-                  variant="outlined"
-                  className={styles.input}
-                  value={phone}
-                  onFocus={event => {
-                    onFocus(event.target.value);
-                  }}
-                  onChange={event => {
-                    setPhone(event.target.value);
-                  }}
-                />
-              ) : (
-                <TextField
-                  error
-                  id="outlined-basic"
-                  helperText={phoneHelperText}
-                  variant="outlined"
-                  className={styles.input}
-                  value={phone}
-                  onChange={event => {
-                    setPhone(event.target.value);
-                    setPhoneHelperText('+38 (XXX) XXX - XX - XX');
-                  }}
-                />
-              )}
+                {emailHelperText === 'Enter your email'
+                  ? (
+                    <TextField
+                      id="outlined-basic"
+                      label="Email"
+                      helperText={emailHelperText}
+                      variant="outlined"
+                      className={styles.input}
+                      value={email}
+                      onChange={event => {
+                        setEmail(event.target.value);
+                      }}
+                    />
+                  )
+                  : (
+                    <TextField
+                      error
+                      id="outlined-basic"
+                      helperText={emailHelperText}
+                      variant="outlined"
+                      className={styles.input}
+                      value={email}
+                      onChange={event => {
+                        setEmail(event.target.value);
+                        setEmailHelperText('Enter your email');
+                      }}
+                    />
+                  )
+                }
+
+                {phoneHelperText === '+38 (XXX) XXX - XX - XX'
+                  ? (
+                    <TextField
+                      id="outlined-basic"
+                      label="Phone"
+                      helperText={phoneHelperText}
+                      variant="outlined"
+                      className={styles.input}
+                      value={phone}
+                      onFocus={event => {
+                        onFocus(event.target.value);
+                      }}
+                      onChange={event => {
+                        setPhone(event.target.value);
+                      }}
+                    />
+                  )
+                  : (
+                    <TextField
+                      error
+                      id="outlined-basic"
+                      helperText={phoneHelperText}
+                      variant="outlined"
+                      className={styles.input}
+                      value={phone}
+                      onChange={event => {
+                        setPhone(event.target.value);
+                        setPhoneHelperText('+38 (XXX) XXX - XX - XX');
+                      }}
+                    />
+                  )
+                }
+              </div>
+
+              <p className={styles.position}>
+                Select your position
+              </p>
+
+              <RadioButtons setPositionId={setPositionId} />
             </div>
 
-            <p className={styles.position}>
-              Select your position
-            </p>
-            <RadioButtons setPositionId={setPositionId} />
+            <div className={styles.upload}>
+              <Uploader
+                setPhoto={setPhoto}
+                errorText={photoErrorText}
+              />
+            </div>
+
+            <div className={styles.button}>
+              <ButtonSignUp 
+                status={name && email && phone && positionId && photo}
+                onSubmit={onSubmit}
+              />
+            </div>
+
           </div>
+        )
+        : (
+          <div className={styles.container} id="form">
+            <span className={styles.title}>
+              User successfully registered
+            </span>
 
-          <div className={styles.upload}>
-            <Uploader
-              setPhoto={setPhoto}
-              errorText={photoErrorText}
-            />
-          </div>
-
-          <div className={styles.button}>
-            <ButtonSignUp 
-              status={name && email && phone && positionId && photo}
-              onSubmit={onSubmit}
-            />
-          </div>
-
-        </div>
-      ) : (
-      <div className={styles.container} id="form">
-        <span className={styles.title}>
-          User successfully registered
-        </span>
-
-        <img src={successImage} alt="success" className={styles.success_image} />
-        </div>
-      )}
+            <img src={successImage} alt="success" className={styles.success_image} />
+            </div>
+        )
+      }
     </>
   );
 };

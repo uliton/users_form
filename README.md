@@ -1,8 +1,8 @@
-## ABZ Agence Test Task
+## Users form
 
 Minimalistic and very stylish SPA (single page application). Adapted for different devices. Simple and very friendly functionality.
 
-* [DEMO LINK](https://uliton.github.io/abz_form/)
+* [DEMO LINK](https://uliton.github.io/users_form/)
 <br>
 
 ## Description
@@ -22,7 +22,7 @@ Minimalistic and very stylish SPA (single page application). Adapted for differe
 <br>
 
 # If you want to change some code just make installation:
-* Fork and clone [this repository](https://github.com/uliton/abz_test_task)
+* Fork and clone [this repository](https://github.com/uliton/users_form)
 * Run "npm install" ore "npm i" in your terminal
 * Run "npm start"
 * Anjoy!

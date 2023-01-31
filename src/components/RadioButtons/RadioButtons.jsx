@@ -12,7 +12,7 @@ export const RadioButtons = ({ setPositionId }) => {
     getPositions().then(result => {
       setPositions([...result.positions])
     });
-  },[]);
+  }, []);
 
   if (positions.length === 0) {
     return (
